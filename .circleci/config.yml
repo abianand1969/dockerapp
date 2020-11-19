@@ -20,7 +20,8 @@ jobs:
       - deploy:
           name: Push Docker Image to Docker Hub
           command:
-            docker login -u subbiah -p micron@123
-            # docker tag dockerapp_dockerapp $DOCKER_HUB_USER_ID/dockerapp:circle_SHA1
-            # docker tag dockerapp_dockerapp $DOCKER_HUB_USER_ID/dockerapp:latest
-            # docker push $DOCKER_HUB_USER_ID/dockerapp:latest
+            docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
+            docker tag dockerapp_dockerapp $DOCKER_HUB_USER_ID/dockerapp:circle_SHA1
+            docker tag dockerapp_dockerapp $DOCKER_HUB_USER_ID/dockerapp:latest
+            docker push $DOCKER_HUB_USER_ID/dockerapp:latest
+           
